@@ -38,6 +38,11 @@ variable "public_access_prevention" {
   description = "The public access prevention configuration for the bucket"
   type        = string
   default     = "enforced"
+
+  validation {
+    condition     = contains(["enforced", "inherited"], var.public_access_prevention)
+    error_message = "The public_access_prevention must be one of: enforced, inherited"
+  }
 }
 
 variable "storage_class" {
