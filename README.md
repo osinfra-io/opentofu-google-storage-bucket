@@ -1,12 +1,10 @@
 # <img align="left" width="45" height="45" src="https://user-images.githubusercontent.com/1610100/198844818-02e68cb6-f6cc-4747-bf38-cd458a133628.png"> Google Cloud Platform - Storage Bucket OpenTofu Module
 
-**[GitHub Actions](https://github.com/osinfra-io/opentofu-google-storage-bucket/actions):**
-
-[![OpenTofu Tests](https://github.com/osinfra-io/opentofu-google-storage-bucket/actions/workflows/test.yml/badge.svg)](https://github.com/osinfra-io/opentofu-google-storage-bucket/actions/workflows/test.yml) [![Dependabot](https://github.com/osinfra-io/opentofu-google-storage-bucket/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/opentofu-google-storage-bucket/actions/workflows/dependabot.yml)
+[![OpenTofu Tests](https://img.shields.io/github/actions/workflow/status/osinfra-io/opentofu-google-storage-bucket/test.yml?style=for-the-badge&logo=opentofu&color=FEDA15&label=OpenTofu%20Tests)](https://github.com/osinfra-io/opentofu-google-storage-bucket/actions/workflows/test.yml) [![Dependabot](https://img.shields.io/github/actions/workflow/status/osinfra-io/opentofu-google-storage-bucket/dependabot.yml?style=for-the-badge&logo=github&color=2088FF&label=Dependabot)](https://github.com/osinfra-io/opentofu-google-storage-bucket/actions/workflows/dependabot.yml)
 
 ## Repository Description
 
-OpenTofu **example** module for a Google Cloud Platform storage bucket.
+OpenTofu **example** module that creates a Google Cloud Storage bucket with uniform bucket-level access enforced, public access prevention, and optional object versioning. It supports customer-managed encryption keys (CMEK) and a configurable storage class (STANDARD, NEARLINE, COLDLINE, ARCHIVE, etc.).
 
 > [!NOTE]
 > We do not recommend consuming this module like you might a [public module](https://search.opentofu.org). It is a baseline, something you can fork, potentially maintain, and modify to fit your organization's needs. Using public modules vs. writing your own has various [drivers and trade-offs](https://docs.osinfra.io/fundamentals/architecture-decision-records/adr-0003) that your organization should evaluate.
@@ -15,6 +13,10 @@ OpenTofu **example** module for a Google Cloud Platform storage bucket.
 
 > [!TIP]
 > You can check the [tests/fixtures](tests/fixtures) directory for example configurations. These fixtures set up the system for testing by providing all the necessary initial code, thus creating good examples on which to base your configurations.
+
+Google project services must be enabled before using this module. As a best practice, these should be defined in the [opentofu-google-project](https://github.com/osinfra-io/opentofu-google-project) module. The following services are required:
+
+- `storage.googleapis.com`
 
 ## <img align="left" width="35" height="35" src="https://github.com/osinfra-io/github-organization-management/assets/1610100/39d6ae3b-ccc2-42db-92f1-276a5bc54e65"> Development
 

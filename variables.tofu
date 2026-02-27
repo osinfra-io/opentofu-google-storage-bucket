@@ -26,6 +26,7 @@ variable "location" {
 
 variable "name" {
   description = "The name of the storage bucket"
+  type        = string
 }
 
 variable "project" {
@@ -37,12 +38,22 @@ variable "public_access_prevention" {
   description = "The public access prevention configuration for the bucket"
   type        = string
   default     = "enforced"
+
+  validation {
+    condition     = contains(["enforced", "inherited"], var.public_access_prevention)
+    error_message = "The public_access_prevention must be one of: enforced, inherited"
+  }
 }
 
 variable "storage_class" {
   description = "The Storage Class of the new bucket. Supported values include: STANDARD, MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE"
   type        = string
   default     = "STANDARD"
+
+  validation {
+    condition     = contains(["STANDARD", "MULTI_REGIONAL", "REGIONAL", "NEARLINE", "COLDLINE", "ARCHIVE"], var.storage_class)
+    error_message = "The storage_class must be one of: STANDARD, MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE"
+  }
 }
 
 variable "versioning" {
