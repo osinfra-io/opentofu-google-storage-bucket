@@ -9,6 +9,9 @@ terraform {
   }
 }
 
+# Google Storage Bucket
+# https://github.com/osinfra-io/pt-arche-google-storage-bucket
+
 module "storage_bucket" {
   source = "../../../"
 
@@ -20,6 +23,9 @@ module "storage_bucket" {
   name     = random_id.bucket_name.hex
   project  = var.project
 }
+
+# Random ID
+# https://search.opentofu.org/provider/hashicorp/random/latest/docs/resources/id
 
 resource "random_id" "bucket_name" {
   byte_length = 5

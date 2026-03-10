@@ -1,9 +1,12 @@
-# Google Storage Bucket Resource
+# Resources
+# https://opentofu.org/docs/language/resources
+
+# Google Storage Bucket
 # https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/storage_bucket
 
 resource "google_storage_bucket" "this" {
   dynamic "encryption" {
-    for_each = var.default_kms_key_name == null ? [] : [var.default_kms_key_name]
+    for_each = local.storage_bucket_kms_key_names
     content {
       default_kms_key_name = encryption.value
     }
