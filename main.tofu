@@ -1,7 +1,4 @@
-# Resources
-# https://opentofu.org/docs/language/resources
-
-# Google Storage Bucket
+# Google Storage Bucket Resource
 # https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/storage_bucket
 
 resource "google_storage_bucket" "this" {
