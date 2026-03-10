@@ -2,9 +2,11 @@
 # https://opentofu.org/docs/language/values/variables
 
 variable "environment" {
-  type = string
+  description = "The deployment environment"
+  type        = string
 }
 
 variable "project" {
-  type = string
+  description = "The GCP project ID"
+  type        = string
 }
