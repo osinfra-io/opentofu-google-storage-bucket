@@ -12,7 +12,7 @@ terraform {
 # Google Storage Bucket
 # https://github.com/osinfra-io/pt-arche-google-storage-bucket
 
-module "storage_bucket" {
+module "google_storage_bucket" {
   source = "../../../"
 
   labels = {
